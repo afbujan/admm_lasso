@@ -18,7 +18,7 @@ def main():
     parser.add_option("-o",type="string",default=os.getcwd(),\
         help="hdf5 file to store the results")
     parser.add_option("-i",type="string",default='',\
-        help="hdf5 file containing input data (X,y pairs). X dim: (samples,features)")
+        help="hdf5 file containing input data (X,y pairs)")
     parser.add_option("--alpha",type="float",default=.5,\
         help="scalar regularization parameter for Lasso")
     parser.add_option("--rho",type="float",default=1.,\
