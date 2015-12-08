@@ -1,5 +1,5 @@
-ADMM-Lasso
-----------
+Python ADMM-Lasso
+-----------------
 
 Python code to solve the Lasso problem using ADMM. 
 
