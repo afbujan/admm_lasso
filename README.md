@@ -5,7 +5,7 @@ Python code to solve the Lasso problem using ADMM.
 
 Serial and ditributed version of ADMM Lasso with Open MPI. 
 
-Original code (written in Matlab and C++) can be found in http://www.stanford.edu/~boyd.
+Original code (written in Matlab and C++) can be found at http://www.stanford.edu/~boyd.
 
 To run admm_lasso_MPI.py do:
 
