@@ -7,7 +7,7 @@ Serial and ditributed version of ADMM Lasso with Open MPI.
 
 Original code (written in Matlab and C++) can be found at http://www.stanford.edu/~boyd.
 
-To run admm_lasso_MPI.py do:
+To run admm_lasso_MPI.py type in the terminal:
 
 ```
 mpirun -np number_of_processes python lasso_admm_MPI.py -i /path/to/input_file.h5 -o /path/to/output_file.h5
