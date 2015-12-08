@@ -56,7 +56,7 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
     """
      Solve lasso problem via ADMM
     -----------------------------
-     Solves the following problem via ADMM:
+     Lasso problem:
 
        minimize 1/2*|| Ax - y ||_2^2 + alpha || x ||_1
 
