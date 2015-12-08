@@ -23,6 +23,6 @@ The code to generate sparse matrices of normally distributed random numbers was 
 
 The ouptut of test_lasso_admm.py should look like this:
 
-![alt tag](https://github.com/afbujan/admm_lasso/edit/master/figure1.png)
+![figure1](https://github.com/afbujan/admm_lasso/edit/master/figure1.png)
 
-![alt tag](https://github.com/afbujan/admm_lasso/edit/master/figure2.png)
+![figure2](https://github.com/afbujan/admm_lasso/edit/master/figure2.png)
