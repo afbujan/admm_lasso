@@ -61,11 +61,11 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
        minimize 1/2*|| Ax - y ||_2^2 + alpha || x ||_1
 
     Input:
-        - hdf5 inputFile with following contents:
+        - hdf5 input file with following contents:
             - data/X: design matrix (samples,features)
             - data/y: target variable (samples)
     Output:
-        - hdf5 file outputFile with following values:
+        - hdf5 output file with following values:
             - x:       solution of the Lasso problem (weights)
             - objval:  objective value
             - r_norm:  primal residual norm
@@ -89,8 +89,8 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
     #TODO: improve with parallel hdf5
     if rank==0:
         with h5py.File(inputFile,'r') as f:
-            X    = np.copy(f['data/X'].value)
-            y = np.copy(f['data/y'].value)
+            X   = np.copy(f['data/X'].value)
+            y   = np.copy(f['data/y'].value)
             m,n = f['data/X'].shape
     else:
         n  = np.zeros(1).astype('int')
