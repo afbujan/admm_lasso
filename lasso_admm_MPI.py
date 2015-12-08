@@ -223,7 +223,7 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
             f.attrs['rho']      = rho
             f.attrs['abs_tol']  = abs_tol
             f.attrs['rel_tol']  = rel_tol
-            f.create_dataset(name='z',data=z,compression='gzip')
+            f.create_dataset(name='z',data=z.ravel(),compression='gzip')
             f.create_dataset(name='objval',data=np.asarray(objval),\
                              compression='gzip')
             f.create_dataset(name='r_norm',data=np.asarray(r_norm),\
