@@ -19,3 +19,10 @@ python lasso_admm_MPI.py --help
 ```
 
 The code to generate sparse matrices of normally distributed random numbers was taken from http://scipy-user.10969.n7.nabble.com/Random-sparse-matrices-td4788.html 
+
+
+The ouptut of test_lasso_admm.py should look like this:
+
+![alt tag](https://github.com/afbujan/admm_lasso/edit/master/figure1.png)
+
+![alt tag](https://github.com/afbujan/admm_lasso/edit/master/figure2.png)
