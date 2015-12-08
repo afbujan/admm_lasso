@@ -25,7 +25,7 @@ def main():
         help="augmented Lagrangian parameter")
     parser.add_option("--max_iter",type="int",default=50,\
         help="max number of ADMM iterations")
-    parser.add_option("--abs_tol",type="float",default=1e-4,\
+    parser.add_option("--abs_tol",type="float",default=1e-3,\
         help="absolute tolerance for early stopping")
     parser.add_option("--rel_tol",type="float",default=1e-2,\
         help="relative tolerance for early stopping")
@@ -62,8 +62,8 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
 
     Input:
         - hdf5 input file with following contents:
-            - data/X: design matrix (samples,features)
-            - data/y: target variable (samples)
+            - data/X : design matrix (samples,features)
+            - data/y : target variable (samples)
     Output:
         - hdf5 output file with following values:
             - x      : solution of the Lasso problem (weights)
@@ -122,11 +122,12 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
 
     #save a matrix-vector multiply
     Xty = X.T.dot(y)
-    if rank==0 and verbose and debug:
+    
+    if verbose and debug:
         print "\n*Process #: %i \t*X   size: %s"%(rank,str(X.shape))
         print "\n*Process #: %i \t*Xty size: %s"%(rank,str(Xty.shape))
 
-    #ADMM solver
+    #initialize ADMM solver
     x = np.zeros((n,1))
     z = np.zeros((n,1))
     u = np.zeros((n,1))
@@ -138,6 +139,7 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
     # cache the (Cholesky) factorization
     L,U = factor(X,rho)
 
+    # Saving state
     if rank==0 and verbose:
         print '\n%3s\t%10s\t%10s\t%10s\t%10s\t%10s' %('iter',
                                                       'r norm', 
@@ -145,8 +147,6 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
                                                       's norm', 
                                                       'eps dual', 
                                                       'objective')
-
-    # Saving state
     objval     = []
     r_norm     = []
     s_norm     = []
