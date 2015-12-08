@@ -4,6 +4,10 @@ import scipy.sparse as sparse
 from scipy.sparse.linalg import spsolve
 from numpy.linalg import norm,cholesky
 
+"""
+Author  : Alex Bujan (adapted from http://www.stanford.edu/~boyd)
+Date    : 12/06/2015
+"""
 
 
 def lasso_admm(X,y,alpha,rho=1.,rel_par=1.,QUIET=True,\
@@ -27,7 +31,6 @@ def lasso_admm(X,y,alpha,rho=1.,rel_par=1.,QUIET=True,\
     
      rel_par is the over-relaxation parameter (typical values for rel_par are
      between 1.0 and 1.8).
-    
     
      More information can be found in the paper linked at:
      http://www.stanford.edu/~boyd/papers/distr_opt_stat_learning_admm.html
@@ -120,7 +123,6 @@ def factor(X,rho):
        L = cholesky(X.T.dot(X)+rho*sparse.eye(n))
     else:
        L = cholesky(sparse.eye(m)+1./rho*(X.dot(X.T)))
-    #force to recognize the upper / lower triangular structure
     L = sparse.csc_matrix(L)
     U = sparse.csc_matrix(L.T)
     return L,U

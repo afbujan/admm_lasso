@@ -9,6 +9,11 @@ reload(ladmm)
 
 from sparse_randn import sprandn
 
+"""
+Author  : Alex Bujan (adapted from http://www.stanford.edu/~boyd)
+Date    : 12/06/2015
+"""
+
 np.random.seed(1234)
 
 m = 1500        # number of examples
