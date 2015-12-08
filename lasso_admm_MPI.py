@@ -66,10 +66,10 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
             - data/y: target variable (samples)
     Output:
         - hdf5 output file with following values:
-            - x:       solution of the Lasso problem (weights)
-            - objval:  objective value
-            - r_norm:  primal residual norm
-            - s_norm:  dual residual norm
+            - x      : solution of the Lasso problem (weights)
+            - objval : objective value
+            - r_norm : primal residual norm
+            - s_norm : dual residual norm
             - eps_pri: tolerance for primal residual norm
             - eps_pri: tolerance for dual residual norm
     """
@@ -113,9 +113,9 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
     '''
     Select sample block
     '''
-    X = X[rank::N,:]
+    X   = X[rank::N,:]
     m,n = X.shape
-    y = y.ravel()[rank::N].reshape((m,1))
+    y   = y.ravel()[rank::N].reshape((m,1))
 
     if rank==0:
         tic = time.time()
@@ -204,7 +204,7 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
                                                               eps_dual[k],\
                                                               objval[k])
 
-        if (r_norm[k]<eps_pri[k]) and (s_norm[k]<eps_dual[k]) and k>0:
+        if r_norm[k]<eps_pri[k] and s_norm[k]<eps_dual[k] and k>0:
             break
 
         #Compute residual
