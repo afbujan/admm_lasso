@@ -1,7 +1,7 @@
 ADMM-Lasso
 ----------
 
-Code to solve the Lasso problem using ADMM solver and written in Python. 
+Python code to solve the Lasso problem using ADMM. 
 
 Serial and ditributed version of ADMM Lasso with Open MPI. 
 
