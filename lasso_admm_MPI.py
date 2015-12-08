@@ -62,16 +62,16 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
 
     Input:
         - hdf5 inputFile with following contents:
-            - X: design matrix. 
+            - data/X: design matrix (samples,features)
+            - data/y: target variable (samples)
     Output:
         - hdf5 file outputFile with following values:
-            - x: solution of the Lasso problem (weights)
-            - Evaluation of the state during the optimization:
-                + objective value
-                + primal residual norm
-                + dual residual norm
-                + tolerance for primal residual norm
-                + tolerance for dual residual norm
+            - x:       solution of the Lasso problem (weights)
+            - objval:  objective value
+            - r_norm:  primal residual norm
+            - s_norm:  dual residual norm
+            - eps_pri: tolerance for primal residual norm
+            - eps_pri: tolerance for dual residual norm
     """
 
     '''
