@@ -238,9 +238,6 @@ def lasso_admm(inputFile,outputFile,alpha=.5,rho=1.,verbose=True,\
 def objective(X,y,alpha,x,z):
     return .5*np.square(X.dot(x)-y).sum()+alpha*norm(z,1)
 
-def shrinkage(x,kappa):
-    return np.maximum(0.,x-kappa)-np.maximum(0.,-x-kappa)
-
 def factor(X,rho):
     m,n = X.shape
     if m>=n:
