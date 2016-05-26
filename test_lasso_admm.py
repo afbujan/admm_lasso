@@ -18,7 +18,7 @@ np.random.seed(1234)
 
 m = 1500        # number of examples
 n = 5000        # number of features
-p = 100//n      # sparsity density
+p = 100/n       # sparsity density
 
 x0  = sprandn(n,1,p)
 X   = np.random.randn(m,n)
